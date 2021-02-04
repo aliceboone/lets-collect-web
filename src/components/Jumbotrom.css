@@ -1,0 +1,19 @@
+.jumbotrom{
+ background-image: url(https://alice-gomes2.imgbb.com/);
+ background-repeat: no-repeat, repeat;
+ background-position: center;
+ background-size: cover;
+ font-weight: bold;
+ margin-top: 20px;
+ margin-bottom: 50px;
+ padding: 20px;
+ border-radius: 50px;
+ box-shadow: 10px 10px 5px 0px rgba(0,0 0,0, 75);
+}
+
+.jumbotrom h1 p {
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+}
+
