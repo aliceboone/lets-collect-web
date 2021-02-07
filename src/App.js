@@ -1,25 +1,53 @@
 import React from "react";
-import Products from './components/Products'
-import Categories from './components/Categories'
-import NavBar from './components/NavBar'
-// import SlideImages from "./components/SlideImages";
-// import SearchBar from './components/SearchBar'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import Jumbotrom from "./components/Jumbotrom";
+import NavBar from "./components/NavBar";
+import NewProductForm from "./components/NewProductForm";
+import AdminPage from "./components/AdminPage";
+import Cart from "./components/Cart";
+// import Home from "./components/Home";
+import Products from "./components/Products";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useParams,
+} from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import Footer from "./components/Footer";
 
 const App = () => {
- 
-  return(
-    <div className="App">
-      <NavBar/>
+  return (
+    <Router>
       <div className="container">
-        <Jumbotrom/>
-        <Products/>
-        <Categories/>
+        <NavBar />
+        <div>
+          <Switch>
+            <Route exact path="/">
+              <Products />
+            </Route>
+            <Route exact path="/cart">
+              <Cart />
+            </Route>
+            <Route exact path="/admin">
+              <AdminPage />
+            </Route>
+            <Route exact path="/admin/manageproducts/product/new">
+              <NewProductForm />
+            </Route>
+            <Route path="/category/:category">
+              <ProductsInCategory />
+            </Route>
+          </Switch>
+        </div>
+        {/* <Footer /> */}
       </div>
-    </div>
-  )
-}
+    </Router>
+  );
+};
+
+const ProductsInCategory = () => {
+  const params = useParams();
+  return <div>Category {params.category}</div>;
+};
 
 export default App;
