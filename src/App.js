@@ -1,19 +1,11 @@
 import React from "react";
 import NavBar from "./components/NavBar";
 import NewProductForm from "./components/NewProductForm";
-import AdminPage from "./components/AdminPage";
-import Cart from "./components/Cart";
-// import Home from "./components/Home";
 import Products from "./components/Products";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useParams,
+import {BrowserRouter as Router, Switch, Route, useParams,
 } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -25,13 +17,7 @@ const App = () => {
             <Route exact path="/">
               <Products />
             </Route>
-            <Route exact path="/cart">
-              <Cart />
-            </Route>
-            <Route exact path="/admin">
-              <AdminPage />
-            </Route>
-            <Route exact path="/admin/manageproducts/product/new">
+            <Route exact path="/product/new">
               <NewProductForm />
             </Route>
             <Route path="/category/:category">
@@ -39,7 +25,6 @@ const App = () => {
             </Route>
           </Switch>
         </div>
-        {/* <Footer /> */}
       </div>
     </Router>
   );

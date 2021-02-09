@@ -60,7 +60,6 @@ const Products = (props) => {
 
   return (
     <div data-testid={props.keyWord}>
-      <h1>Products in Cart</h1>
       <h4
         className={
           errorMessage

@@ -49,12 +49,6 @@ const Product = ({product}) => {
         <figcaption>{product.name} 
         <br/>{new Date(product.releaseYear).getFullYear()}
         <br/>{new Date(product.price).getFullYear()}
-        <br/> 
-          <button
-            className="btn btn-outline-primary btn-sm"
-            onClick={onFormSubmit}>
-            Add to Cart
-          </button>
       </figcaption>
     </figure> 
     </div>
