@@ -1,0 +1,8 @@
+.recipe-card-list__container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.recipe-card-link__container {
+  width: 20rem;
+}

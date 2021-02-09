@@ -28,18 +28,6 @@ const NewProductForm = (props)=> {
   }, []);
 
 
-  const addProduct = (product) => {
-    axios
-    // include category in the category
-      .post("/product", product)
-      .then((response) => {
-        setErrorMessage("Product successfully added!");
-      })
-      .catch((error) => {
-        setErrorMessage("Not able to add product, try again");
-      });
-  };
-
 const onInputChange = (event) => {
   const newFormFields = { ...formFields }
   newFormFields[event.target.name] = event.target.value;

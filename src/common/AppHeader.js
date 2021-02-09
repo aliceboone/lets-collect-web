@@ -1,55 +1,84 @@
-
-import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, {useState} from 'react';
+import { NavLink } from 'react-router-dom';
 import './AppHeader.css';
-// import NavBar from "../components/bars/NavBar";
-// import NewProductForm from "./components/NewProductForm";
-// import AdminPage from "../components/bars/AdminPage";
-// import Cart from "../components/product/Cart";
-// import Products from "./components/Products";
-// import Home from '../home/Home';
+import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import RecipeUrlForm from '../recipes/RecipeUrlForm';
 
-class AppHeader extends Component {
-  render() {
+const AppHeader = (props) =>  {
+
+    const [show, setShow] = useState(false);
+
+    // const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     return (
-      <header className="app-header">
-        <div className="container">
-          <div className="app-branding">
-            <Link to="/" className="app-title">
-              Lets go Sports Cards
-            </Link>
-          </div>
-          <div className="app-options">
-            <nav className="app-nav">
-              {this.props.authenticated ? (
-                <ul>
-                  <li>
-                    <NavLink to="/">Products</NavLink>
-                  </li>
+        // <header className="app-header">
+        //     <div className="container">
+        //         <div className="app-branding">
+        //             <Link to="/" className="app-title">Recipe Stash</Link>
+        //         </div>
+        //         <div className="app-options">
+        //             <nav className="app-nav">
+        //                     { this.props.authenticated ? (
+        //                         <ul>
+        //                             <li>
 
-                  <li>
-                    <NavLink to="/profile">Profile</NavLink>
-                  </li>
-                  <li>
-                    <button onClick={this.props.onLogout}>Logout</button>
-                  </li>
-                </ul>
-              ) : (
-                <ul>
-                  <li>
-                    <NavLink to="/login">Login</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/signup">Signup</NavLink>
-                  </li>
-                </ul>
-              )}
-            </nav>
-          </div>
-        </div>
-      </header>
-    );
-  }
+        //                             </li>
+        //                             <li>
+        //                                 <NavLink to="/">Recipes</NavLink>
+        //                             </li>
+        //                             <li>
+        //                                 <NavLink to="/profile">Profile</NavLink>
+        //                             </li>
+        //                             <li>
+        //                                 <button onClick={this.props.onLogout}>Logout</button>
+        //                             </li>
+        //                         </ul>
+        //                     ): (
+        //                         <ul>
+        //                             <li>
+        //                                 <NavLink to="/login">Login</NavLink>        
+        //                             </li>
+        //                             <li>
+        //                                 <NavLink to="/signup">Signup</NavLink>        
+        //                             </li>
+        //                         </ul>
+        //                     )}
+        //             </nav>
+        //         </div>
+        //     </div>
+        // </header>
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar.Brand as={NavLink} to="/">Lets Collect Cards</Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+                
+                    {props.authenticated ? (
+                        <Nav className="ml-auto">
+                        <Nav.Link as={NavLink} to="/" exact>Cards</Nav.Link>
+                        <Nav.Link as={NavLink} to="/profile">Profile</Nav.Link>
+                        <NavDropdown title="Add Recipe" id="collasible-nav-dropdown">
+                            
+                            {/* <NavDropdown.Item onClick={handleShow}>Url</NavDropdown.Item> */}
+                            {/* <RecipeUrlForm reFetchProducts={props.reFetchProducts} show={show} setShow={setShow}/> */}
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="#action/3.4">Manual</NavDropdown.Item>
+                        </NavDropdown>
+                        <Button onClick={props.onLogout} variant="outline-light">Logout</Button>
+                        </Nav>
+                    ) : (
+                        <Nav className="ml-auto">
+                        <Nav.Link as={NavLink} to="/login">Login</Nav.Link>
+                        <Nav.Link as={NavLink} to="/signup">Signup</Nav.Link>
+                        </Nav>
+                    )}
+                
+                
+            </Navbar.Collapse>
+        </Navbar>
+    )
+    
 }
-export default AppHeader;
 
+export default AppHeader;

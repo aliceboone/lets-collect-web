@@ -35,6 +35,45 @@ export function getCurrentUser() {
     });
 }
 
+export function getRecipes() {
+    if(!localStorage.getItem(ACCESS_TOKEN)) {
+        return Promise.reject("No access token set.");
+    }
+
+    return request({
+        // credentials: 'same-origin',
+        url: API_BASE_URL + "/recipes",
+        method: 'GET',
+        // mode: 'cors'
+    });
+}
+
+export function deleteRecipe(recipeId) {
+    if(!localStorage.getItem(ACCESS_TOKEN)) {
+        return Promise.reject("No access token set.");
+    }
+
+    return request({
+        // credentials: 'same-origin',
+        url: API_BASE_URL + "/recipes/" +recipeId,
+        method: 'DELETE',
+        // mode: 'cors'
+    });
+}
+
+export function addExternalRecipe(urlString) {
+    if(!localStorage.getItem(ACCESS_TOKEN)) {
+        return Promise.reject("No access token set.");
+    }
+
+    return request({
+        // credentials: 'same-origin',
+        url: API_BASE_URL + "/recipes?url=" + urlString,
+        method: 'POST',
+        // body: JSON.stringify({url: urlString})
+        // mode: 'cors'
+    });
+}
 
 export function login(loginRequest) {
     return request({
@@ -52,5 +91,4 @@ export function signup(signupRequest) {
         body: JSON.stringify(signupRequest),
         // mode: 'cors'
     });
-}
-
+} 
