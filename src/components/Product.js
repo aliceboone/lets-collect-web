@@ -45,10 +45,9 @@ const Product = ({product}) => {
     return (
      <div>
         <figure className="product">
-        <img src={product.imageUrl} alt={product.name} />
-        <figcaption>{product.name} 
-        <br/>{new Date(product.releaseYear).getFullYear()}
-        <br/>{new Date(product.price).getFullYear()}
+        <img src={product.imageUrl} alt={product.imageUrl} />
+        <figcaption>{product.playerName} 
+        <br/>{product.description}
       </figcaption>
     </figure> 
     </div>
