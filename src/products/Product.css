@@ -1,0 +1,13 @@
+.product-card__container{
+  border: 1px solid grey;
+  margin: 1rem;
+  /* width: 30%; */
+}
+
+.product-card__img {
+  width: 100%;
+}
+
+.product-card__content {
+  margin: 1rem;
+}
