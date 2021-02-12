@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Route, Switch } from "react-router-dom";
 import AppHeader from "../common/AppHeader";
 import Login from "../user/login/Login";
@@ -7,7 +8,7 @@ import Profile from "../user/profile/Profile";
 import OAuth2RedirectHandler from "../user/oauth2/OAuth2RedirectHandler";
 import NotFound from "../common/NotFound";
 import LoadingIndicator from "../common/LoadingIndicator";
-import { getCurrentUser} from "../util/APIUtils";
+import { getCurrentUser } from "../util/APIUtils";
 import { ACCESS_TOKEN } from "../constants";
 import PrivateRoute from "../common/PrivateRoute";
 import Alert from "react-s-alert";
@@ -15,51 +16,65 @@ import "react-s-alert/dist/s-alert-default.css";
 import "react-s-alert/dist/s-alert-css-effects/slide.css";
 import "./App.css";
 import ProductList from "../products/ProductList";
-import Product from '../products/Product';
+import Product from "../products/Product";
 import UpdateProductForm from "../products/UpdateProductForm";
-// import CategoryList from "../components/CategoryList";
-
-
+import AddProductForm from "../products/AddProductForm";
+import AddCategoryForm from "../components/AddCategoryForm";
+import ProductDetails from "../products/ProductDetails";
+import { API_BASE_URL } from "../constants/index";
 
 const App = () => {
-    const [authenticated, setAuthenticated] = useState(false)
-    const [currentUser, setCurrentUser] = useState(null)
-    const [loading, setLoading] = useState(false)
-    const [currentProduct, setCurrentProduct] = useState(null)
-  
+  const [authenticated, setAuthenticated] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [currentProduct, setCurrentProduct] = useState(null);
+  const [productList, setProductList] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
 
-    // Event handler
-    const onLogout = () => {
-      localStorage.removeItem(ACCESS_TOKEN);
-      setAuthenticated(false);
-      setCurrentUser(null);
-      Alert.success("You're safely logged out!");
-    }
-  
-    useEffect(() => {
-      setLoading(true);
-  
-      getCurrentUser()
-      .then(response => {
+  useEffect(() => {
+    axios
+      .get(`${API_BASE_URL}/product`, {
+        headers: { Authorization: `Bearer ${localStorage.accessToken}` },
+      })
+      .then((response) => {
+        setProductList(response.data);
+        setErrorMessage("");
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+      });
+  }, []);
+
+  // Event handler
+  const onLogout = () => {
+    localStorage.removeItem(ACCESS_TOKEN);
+    setAuthenticated(false);
+    setCurrentUser(null);
+    Alert.success("You're safely logged out!");
+  };
+
+  useEffect(() => {
+    setLoading(true);
+
+    getCurrentUser()
+      .then((response) => {
         setCurrentUser(response);
         setAuthenticated(true);
         setLoading(false);
-      }).catch(error => {
+      })
+      .catch((error) => {
         setLoading(false);
-      });   
-    },[])
-  
-    if(loading) {
-      return <LoadingIndicator />
-    }
-    
+      });
+  }, []);
+
+  if (loading) {
+    return <LoadingIndicator />;
+  }
+
   return (
     <div className="app">
       <div className="app-top-box">
-        <AppHeader
-          authenticated={authenticated}
-          onLogout={onLogout}
-        />
+        <AppHeader authenticated={authenticated} onLogout={onLogout} />
       </div>
       <div className="app-body">
         <Switch>
@@ -71,26 +86,51 @@ const App = () => {
           ></PrivateRoute>
 
           <PrivateRoute
+            path="/add-card"
+            authenticated={authenticated}
+            currentUser={currentUser}
+            component={AddProductForm}
+          ></PrivateRoute>
+
+          <PrivateRoute
+            path="/add-category"
+            authenticated={authenticated}
+            currentUser={currentUser}
+            component={AddCategoryForm}
+          ></PrivateRoute>
+
+          <PrivateRoute
             exact
             path="/"
             authenticated={authenticated}
             currentUser={currentUser}
             component={ProductList}
             setCurrentProduct={setCurrentProduct}
+            productList={productList}
           ></PrivateRoute>
 
+          <PrivateRoute
+            path="/product/:id/edit"
+            authenticated={authenticated}
+            currentUser={currentUser}
+            component={UpdateProductForm}
+            productList={productList}
+          ></PrivateRoute>
+          
           <PrivateRoute
             path="/product/:id"
             authenticated={authenticated}
             currentUser={currentUser}
-            component={Product}
+            component={ProductDetails}
+            productList={productList}
           ></PrivateRoute>
 
+
           <PrivateRoute
-            path="/product/edit"
+            path="/product"
             authenticated={authenticated}
             currentUser={currentUser}
-            component={UpdateProductForm}
+            component={AddProductForm}
             currentProduct={currentProduct}
           ></PrivateRoute>
 

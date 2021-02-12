@@ -1,17 +1,21 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
+import { NavLink, Link} from 'react-router-dom'
 
 const Product = (props) => {
   // const {imageUrl1, playerName} = props
-  
+
+  // if (redirect) {
+  //   return <Redirect to={{pathname: "/product/:id", state: { from: props.location } }}/>
+  // } else {
     return (
       <Card style={{ width: "18rem" }}>
         <Card.Body>
-          {/* <Card.Title>{props.currentUser.name}</Card.Title> */}
-          {/* <Card.Img variant="top" src={props.product.imageUrl1} alt="" className="product-card__img" /> */}
+  
           <Card.Img variant="top" src={props.product.imageUrl1} />
           <Card.Title>{props.product.playerName}</Card.Title>
           <Card.Title>{props.product.releaseYear}</Card.Title>
+          <Link to={`/product/${props.product.id}`}> Select</Link>
         </Card.Body>
       </Card>
     );

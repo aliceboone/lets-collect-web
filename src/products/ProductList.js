@@ -7,45 +7,10 @@ import Product from "../products/Product";
 import UpdateProductForm from "./UpdateProductForm";
 
 const ProductList = (props) => {
-  const [productList, setProductList] = useState([]);
-  const [errorMessage, setErrorMessage] = useState("");
 
-  useEffect(() => {
-    axios
-      .get(`${API_BASE_URL}/product`, {
-        headers: { Authorization: `Bearer ${localStorage.accessToken}` },
-      })
-      .then((response) => {
-        setProductList(response.data);
-        setErrorMessage("");
-      })
-      .catch((error) => {
-        setErrorMessage(error.message);
-      });
-  }, []);
 
-  const deleteProduct = (id) => {
-    const newProductList = productList.filter((product) => {
-      return product.id !== id;
-    });
-
-    if (newProductList.length < productList.length) {
-      axios
-        .delete(`${API_BASE_URL}/product/${id}`, {
-          headers: { Authorization: `Bearer ${localStorage.accessToken}` },
-        })
-        .then((response) => {
-          setErrorMessage(`Card sucessfully deleted `);
-          setProductList(newProductList);
-        })
-        .catch((error) => {
-          setErrorMessage(`Failed to delete product`);
-        });
-      setProductList(newProductList);
-    }
-  };
-
-  const productComponents = productList.map((product) => {
+ 
+  const productComponents = props.productList.map((product) => {
     return (
       <Product
         product={product}

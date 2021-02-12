@@ -4,7 +4,6 @@ import Product from "./ProductList";
 import { API_BASE_URL } from "../constants/index";
 
 const UpdateProductForm = (props) => {
-
   const defaultFormFields = {
     imageUrl1: props.imageUrl1,
     imageUrl2: props.imageUrl2,
@@ -21,16 +20,22 @@ const UpdateProductForm = (props) => {
     currentValue: props.currentValue,
     team: props.team,
     cardCondition: props.cardCondition,
-    notes:props.notes
+    notes: props.notes,
   };
   const [categoriesList, setCategoriesList] = useState([]);
+  const [formFields, setFormFields] = useState({ defaultFormFields });
+  const [product, setProduct] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
   const [update, setUpdate] = useState(false);
 
   // Get categories
   useEffect(() => {
     axios
-      .get(`/category`)
+      .get(`${API_BASE_URL}/category`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.accessToken}`,
+        },
+      })
       .then((response) => {
         setCategoriesList(response.data);
         setErrorMessage("");
@@ -40,53 +45,74 @@ const UpdateProductForm = (props) => {
       });
   }, []);
 
+  useEffect(() => {
+    axios
+      .get(`${API_BASE_URL}/product/${props.match.params.id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.accessToken}`,
+        },
+      })
+      .then((response) => {
+        setFormFields(response.data);
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+      });
+  }, []);
 
   const updateProduct = (updateProduct) => {
     axios
-    .put(`${API_BASE_URL}/product/${props.id}`, updateProduct, { 
-      headers: { 'Authorization': `Bearer ${localStorage.accessToken}` } })
+      .put(`${API_BASE_URL}/product/${props.match.params.id}`, updateProduct, {
+        headers: { Authorization: `Bearer ${localStorage.accessToken}` },
+      })
       .then((response) => {
         setErrorMessage(`Product succsessfully updated`);
-        setUpdate(false)
+        setUpdate(false);
       })
       .catch((error) => {
         setErrorMessage(`Failed to update product`);
-      })
-  }
+      });
+  };
 
   const cancelUpdateProduct = () => {
-    setUpdate(false)
-  }
-
-  const [formFields, setFormFields] = useState({defaultFormFields});
+    setUpdate(false);
+  };
 
   const onInputChange = (event) => {
-    setFormFields({...formFields, [event.target.name]: event.currentTarget.value})
-  }
+    setFormFields({
+      ...formFields,
+      [event.target.name]: event.currentTarget.value,
+    });
+  };
 
   // event handlers for textarea
-  const onTextareaChange = (event)=> {
-    setFormFields({...formFields, [event.target.name]: event.currentTarget.value})
-  }
+  const onTextareaChange = (event) => {
+    setFormFields({
+      ...formFields,
+      [event.target.name]: event.currentTarget.value,
+    });
+  };
 
   // event handlers for select
-  const onSelectChange = (event)=> {
-    setFormFields({...formFields, [event.target.name]: event.currentTarget.value})
-  }
+  const onSelectChange = (event) => {
+    setFormFields({
+      ...formFields,
+      [event.target.name]: event.currentTarget.value,
+    });
+  };
 
   const onFormSubmit = (event) => {
     event.preventDefault();
     updateProduct(formFields);
 
-    setFormFields({ defaultFormFields })
-  }
- 
+    setFormFields({ defaultFormFields });
+  };
+
   return (
     <form onSubmit={onFormSubmit} className="justify-content-center">
-      <h2 className="new-card-form__header">Add new card to your collection</h2>
+      <h2 className="new-card-form__header">Update your card</h2>
       <div className="form-group">
-
-      <label className="exampleInputEmail1">Brand:</label>
+        <label className="exampleInputEmail1">Brand:</label>
         <input
           id="brand"
           name="brand"
@@ -97,7 +123,7 @@ const UpdateProductForm = (props) => {
           type="text"
         />
 
-    <label className="exampleInputEmail1">Card Number</label>
+        <label className="exampleInputEmail1">Card Number</label>
         <input
           id="cardNumber"
           name="cardNumber"
@@ -106,9 +132,9 @@ const UpdateProductForm = (props) => {
           className="form-control w-50"
           placeholder="Card number"
           type="text"
-        />      
+        />
 
-<label className="exampleInputEmail1">Current Value</label>
+        <label className="exampleInputEmail1">Current Value</label>
         <input
           id="currentValue"
           name="currentValue"
@@ -149,7 +175,7 @@ const UpdateProductForm = (props) => {
           placeholder="Image Back"
           type="text"
         />
-       
+
         <label className="exampleInputEmail1">Team:</label>
         <input
           id="team"
@@ -210,7 +236,7 @@ const UpdateProductForm = (props) => {
           placeholder="Grade"
           type="text"
         />
-       
+
         <label className="exampleInputEmail1">Price Paid</label>
         <input
           id="pricePaid"
@@ -231,7 +257,7 @@ const UpdateProductForm = (props) => {
           placeholder="price"
           type="text"
         />
-       
+
         <label className="exampleInputEmail1">Notes</label>
         <input
           id="notes"
@@ -255,11 +281,11 @@ const UpdateProductForm = (props) => {
           ))}
         </select>
         <button type="submit" className="btn btn-outline-success mt-3">
-          Add Product
+          Save Product
         </button>
       </div>
     </form>
   );
-}
+};
 
 export default UpdateProductForm;
