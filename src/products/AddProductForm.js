@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./AddProductForm.css";
 import { API_BASE_URL } from "../constants/index";
-// import CategoryList from "../components/CategoryList";
 
 const AddProductForm = (props) => {
   const defaultFormFields = {
@@ -28,8 +27,6 @@ const AddProductForm = (props) => {
   const [categoriesList, setCategoriesList] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
   const [productList, setProductList] = useState([]);
-  const [update, setUpdate] = useState(false);
-
  
 // Add product
   const addProduct = (newProduct) => {

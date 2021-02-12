@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import { Link, NavLink } from 'react-router-dom';
+import {NavLink } from 'react-router-dom';
 import "./AppHeader.css";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
-import AddProductForm from "../products/AddProductForm";
-import AddCategoryForm from "../components/AddCategoryForm";
+
 
 import './AppHeader.css';
 
 const AppHeader = (props) => {
   const [show, setShow] = useState(false);
 
-  // const handleClose = () => setShow(false);
+  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -39,10 +38,6 @@ const AppHeader = (props) => {
              <Button onClick={props.onLogout} variant="outline-light">
               Logout
             </Button>
-            {/* <NavDropdown title="Add Category" id="collasible-nav-dropdown">
-              <NavDropdown.Divider />
-              <ProductList />
-            </NavDropdown> */}
           </Nav>
         ) : (
           <Nav className="ml-auto">

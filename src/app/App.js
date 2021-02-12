@@ -31,6 +31,7 @@ const App = () => {
   const [productList, setProductList] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
 
+  // GetProduct
   useEffect(() => {
     axios
       .get(`${API_BASE_URL}/product`, {
@@ -44,6 +45,11 @@ const App = () => {
         setErrorMessage(error.message);
       });
   }, []);
+
+  const ProductsInCategory = () => {
+    const params = useParams();
+    return <div>Category {params.category}</div>;
+  };
 
   // Event handler
   const onLogout = () => {
@@ -100,6 +106,13 @@ const App = () => {
           ></PrivateRoute>
 
           <PrivateRoute
+            path="/category/:category"
+            authenticated={authenticated}
+            currentUser={currentUser}
+            component={ProductsInCategory}
+          ></PrivateRoute>
+
+          <PrivateRoute
             exact
             path="/"
             authenticated={authenticated}
@@ -116,7 +129,7 @@ const App = () => {
             component={UpdateProductForm}
             productList={productList}
           ></PrivateRoute>
-          
+
           <PrivateRoute
             path="/product/:id"
             authenticated={authenticated}
@@ -124,7 +137,6 @@ const App = () => {
             component={ProductDetails}
             productList={productList}
           ></PrivateRoute>
-
 
           <PrivateRoute
             path="/product"
