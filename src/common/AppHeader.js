@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import {NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 import "./AppHeader.css";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, Form, FormControl } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
-import './AppHeader.css';
+import "./AppHeader.css";
 
 const AppHeader = (props) => {
   const [show, setShow] = useState(false);
@@ -31,11 +30,13 @@ const AppHeader = (props) => {
             <Nav.Link as={NavLink} to="/add-card">
               Add Card
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/add-category">
+            {/* <Nav.Link as={NavLink} to="/add-category">
               Add Category
+            </Nav.Link> */}
+            <Nav.Link as={NavLink} to="/portfolio">
+              Portfolio
             </Nav.Link>
-
-             <Button onClick={props.onLogout} variant="outline-light">
+            <Button onClick={props.onLogout} variant="outline-light">
               Logout
             </Button>
           </Nav>
@@ -47,7 +48,6 @@ const AppHeader = (props) => {
             <Nav.Link as={NavLink} to="/signup">
               Signup
             </Nav.Link>
-            
           </Nav>
         )}
       </Navbar.Collapse>

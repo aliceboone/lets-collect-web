@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useParams } from "react-router-dom";
 import AppHeader from "../common/AppHeader";
 import Login from "../user/login/Login";
 import Signup from "../user/signup/Signup";
@@ -19,9 +19,10 @@ import ProductList from "../products/ProductList";
 import Product from "../products/Product";
 import UpdateProductForm from "../products/UpdateProductForm";
 import AddProductForm from "../products/AddProductForm";
-import AddCategoryForm from "../components/AddCategoryForm";
+import AddCategoryForm from "../categories/AddCategoryForm";
 import ProductDetails from "../products/ProductDetails";
 import { API_BASE_URL } from "../constants/index";
+import Portfolio from "../products/Portfolio";
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
@@ -110,6 +111,14 @@ const App = () => {
             authenticated={authenticated}
             currentUser={currentUser}
             component={ProductsInCategory}
+          ></PrivateRoute>
+
+          <PrivateRoute
+            path="/portfolio"
+            authenticated={authenticated}
+            currentUser={currentUser}
+            component={Portfolio}
+            products={productList}
           ></PrivateRoute>
 
           <PrivateRoute
