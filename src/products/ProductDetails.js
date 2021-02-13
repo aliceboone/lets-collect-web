@@ -34,12 +34,12 @@ const ProductDetails = (props) => {
     <div className="product-card__container">
       <img src={product.imageUrl1} alt="" />
       <h1>{product.playerName}</h1>
-      <button as={Link} to={`/product/${product.id}/edit`}>
+      <Button as={Link} to={`/product/${product.id}/edit`}>
         Edit
-      </button>
-      <button onClick={handleDeleteProduct}>
+      </Button>
+      <Button onClick={handleDeleteProduct}>
         Delete
-      </button>
+      </Button>
     </div>
   );
 };
