@@ -1,9 +1,8 @@
 import React from 'react';
-
+import Container from "react-bootstrap/Container";
+import "./SearchBar.css";
 
 const SearchBar = (props) => {
-
-
 
   const handleChange = (e) => {
     searchSpace(e)
@@ -15,14 +14,16 @@ const SearchBar = (props) => {
   }
 
   return (
-    <div className="search-bar">
-      <input 
-        type="text" 
-        placeholder="Enter item to be searched" 
+    <Container>
+      <div id="inputWrapper">
+        <input id="input" 
+        type="search" 
+        placeholder="Enter a item to be searched"
         onChange={handleChange}
-        value={props.search} />
-    </div>
+        value={props.search}>
+        </input>
+      </div>
+    </Container>
   )
 }
-
 export default SearchBar;
