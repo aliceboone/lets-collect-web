@@ -1,5 +1,6 @@
 import React from 'react'
-
+import { Container, Row, Col } from "react-bootstrap";
+import "./Portfolio.css";
 
 const Portfolio = (props) => {
 
@@ -17,21 +18,24 @@ const Portfolio = (props) => {
  })
 
   return (
-    <div>
+    <Container>
       <h1>Show Transaction History</h1>
 
-      <div>Overall Cards
-        {cardsTotal}
-      </div>
+      <Row>
+        <Col>Overall Cards in Collection</Col>
+        <Col>{cardsTotal} items</Col>
+      </Row>
 
-      <div>Overall value
-        {overallValue}
-      </div>
-      
-      <div>Profit made with cards sold
-        {profit}
-      </div>
-    </div>
+      <Row>
+        <Col>Overall amount spent in collection</Col>
+        <Col>${overallValue}</Col>
+      </Row>
+
+      <Row>
+        <Col>Profit made with cards sold</Col>
+        <Col>${profit}</Col>
+      </Row>
+    </Container>
   )
 }
 

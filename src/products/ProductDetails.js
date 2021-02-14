@@ -1,14 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 import "./Product.css";
-import { Card, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { API_BASE_URL, ACCESS_TOKEN } from "../constants/index";
-import ProductList from "../products/ProductList";
+import { API_BASE_URL } from "../constants/index";
 
 const ProductDetails = (props) => {
-  const [show, setShow] = useState(false);
-  const [productList, setProductList] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const { imageUrl1, playerName } = props;
   const id = parseInt(props.match.params.id);
@@ -24,6 +22,7 @@ const ProductDetails = (props) => {
       .then(() => {
         props.setProductList();
         window.history.push(`/product/${id}`)
+        setErrorMessage("Product Successfuly deleted");
       })
       .catch((error) => {
         console.log(error);
@@ -31,16 +30,32 @@ const ProductDetails = (props) => {
   };
 
   return (
-    <div className="product-card__container">
-      <img src={product.imageUrl1} alt="" />
-      <h1>{product.playerName}</h1>
-      <Button as={Link} to={`/product/${product.id}/edit`}>
-        Edit
-      </Button>
-      <Button onClick={handleDeleteProduct}>
-        Delete
-      </Button>
-    </div>
+    <div className="container">
+    {/* //   <img src={product.imageUrl1} alt="" className="productD-card__img"/>
+    //   <h1>{product.playerName}</h1> */}
+
+ 
+
+    <div class="row row-list">
+      <div class="col-xs-3">
+        <img src={product.imageUrl1} alt="" className="productD-card__img"/>
+      </div>
+      <div class="col-xs-2 container-img">
+        <img src={product.imageUrl1}/> 
+      </div>
+      <div class="col-xs-7 container-paragraph">
+        <h4>{product.playerName}</h4>
+        <h5>{product.realeseYear}</h5>
+        <h5>{product.brand}</h5>
+      </div>
+        <Button variant="primary" as={Link} to={`/product/${product.id}/edit`}>Edit</Button>
+   <Button  variant="danger"onClick={handleDeleteProduct}>
+    Delete
+</Button>
+  { errorMessage ? <div class="alert alert-success" role="alert"><h4 className="validation-errors-display">{errorMessage}</h4></div> : '' }
+    </div> 
+  </div>
   );
 };
 export default ProductDetails;
+

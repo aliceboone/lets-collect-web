@@ -35,7 +35,7 @@ class Login extends Component {
         return (
             <div className="login-container">
                 <div className="login-content">
-                    <h1 className="login-title">Login Lets Go Collection</h1>
+                    <h1 className="login-title"> Login to Let's Collect</h1>
                     <SocialLogin />
                     <div className="or-separator">
                         <span className="or-text">OR</span>

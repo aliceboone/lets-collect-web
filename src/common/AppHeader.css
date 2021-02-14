@@ -45,3 +45,9 @@
 .app-nav ul li a.active {
     color: #0f96f6;
 }
+
+.logo{
+    height: 40px;
+    width: 120px;
+    margin-right: 10px;
+}

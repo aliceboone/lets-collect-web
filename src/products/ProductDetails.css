@@ -1,0 +1,16 @@
+.product-card-details__container{
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid gray;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 430px;
+}
+
+.product-card__container {
+  width: 30%;
+}
+
+.product-card__container {
+  margin: 1rem;
+}

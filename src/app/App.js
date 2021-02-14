@@ -16,13 +16,13 @@ import "react-s-alert/dist/s-alert-default.css";
 import "react-s-alert/dist/s-alert-css-effects/slide.css";
 import "./App.css";
 import ProductList from "../products/ProductList";
-import Product from "../products/Product";
 import UpdateProductForm from "../products/UpdateProductForm";
 import AddProductForm from "../products/AddProductForm";
 import AddCategoryForm from "../categories/AddCategoryForm";
 import ProductDetails from "../products/ProductDetails";
 import { API_BASE_URL } from "../constants/index";
 import Portfolio from "../products/Portfolio";
+import Home from "../home/Home";
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
@@ -47,7 +47,7 @@ const App = () => {
       });
   }, []);
 
-  const ProductsInCategory = () => {
+  const ProductsByCategory = () => {
     const params = useParams();
     return <div>Category {params.category}</div>;
   };
@@ -82,6 +82,7 @@ const App = () => {
     <div className="app">
       <div className="app-top-box">
         <AppHeader authenticated={authenticated} onLogout={onLogout} />
+        <hr/>
       </div>
       <div className="app-body">
         <Switch>
@@ -110,7 +111,7 @@ const App = () => {
             path="/category/:category"
             authenticated={authenticated}
             currentUser={currentUser}
-            component={ProductsInCategory}
+            component={ProductsByCategory}
           ></PrivateRoute>
 
           <PrivateRoute
@@ -124,6 +125,14 @@ const App = () => {
           <PrivateRoute
             exact
             path="/"
+            authenticated={authenticated}
+            currentUser={currentUser}
+            component={Home}
+          ></PrivateRoute>
+
+          <PrivateRoute
+            exact
+            path="/product"
             authenticated={authenticated}
             currentUser={currentUser}
             component={ProductList}
@@ -147,13 +156,13 @@ const App = () => {
             productList={productList}
           ></PrivateRoute>
 
-          <PrivateRoute
-            path="/product"
+          {/* <PrivateRoute
+            path="/product/new"
             authenticated={authenticated}
             currentUser={currentUser}
             component={AddProductForm}
             currentProduct={currentProduct}
-          ></PrivateRoute>
+          ></PrivateRoute> */}
 
           <Route
             path="/login"

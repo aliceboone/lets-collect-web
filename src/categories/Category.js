@@ -1,17 +1,14 @@
-import React from "react";
-import { Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Card} from "react-bootstrap";
 
-const Category = (props) => {
-    
-  return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Body>
-        <Card.Title>{props.category.name}</Card.Title>
-        <Link to={`/category/${props.category.id}`}> Select</Link>
-      </Card.Body>
-    </Card>
-  );
-};
+const Category = ({category}) => {
+    return (
+        <Card style={{ width: '18rem' }}>
+        <Card.Body>
+            <Card.Title>{category.name}</Card.Title>
+        </Card.Body>
+        </Card> 
+    )
+}
 
 export default Category;

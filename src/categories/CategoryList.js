@@ -40,7 +40,7 @@ const CategoryList = (props) => {
     <AddCategoryForm addCategory={addCategory}/>
       <Container className="container">
         { errorMessage ? <div><h2 className="validation-errors-display">{errorMessage}</h2></div> : ''}
-        {categoryList.map((category) => (
+        {categoriesList.map((category) => (
           <div key={category.id}>
             <Category category={category}/>
           </div>

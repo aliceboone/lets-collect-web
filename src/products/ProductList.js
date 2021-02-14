@@ -1,10 +1,7 @@
 import React from "react";
-import {} from "./Product";
 import SearchBar from "./SearchBar";
 import Product from "../products/Product";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import {Container, Row, Col} from "react-bootstrap";
 
 const chunk = (array, chunkSize) => {
   const result = [];
@@ -46,10 +43,12 @@ const ProductList = (props) => {
 
   return (
     <div>
-      <SearchBar setSearch={(term) => setSearch(term)} />
+      <hr></hr>
+      <div>
+      <SearchBar className="searchbar" setSearch={(term) => setSearch(term)} />
+      </div>
       <h3 className="text-center">{props.currentUser.name} Collection</h3>
       <Container>{productComponents}</Container>
-      {/* <div className="product-card-list__container">{productComponents}</div> */}
     </div>
   );
 };

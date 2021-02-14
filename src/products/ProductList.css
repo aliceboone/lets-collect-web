@@ -1,8 +1,0 @@
-.product-card-list__container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.product-card-link__container {
-  width: 20rem;
-}
