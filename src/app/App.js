@@ -23,6 +23,7 @@ import ProductDetails from "../products/ProductDetails";
 import { API_BASE_URL } from "../constants/index";
 import Portfolio from "../products/Portfolio";
 import Home from "../home/Home";
+import Footer from "../footer/Footer";
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
@@ -193,9 +194,11 @@ const App = () => {
         timeout={3000}
         position="top-right"
         effect="slide"
-        offset={65}
-      />
+        offset={65}/>
+        <br/>
+        <Footer />
     </div>
+  
   );
 };
 export default App;
