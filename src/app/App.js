@@ -194,8 +194,8 @@ const App = () => {
         timeout={3000}
         position="top-right"
         effect="slide"
-        offset={65}
-      />
+        offset={65}/>
+        <br/>
         <Footer />
     </div>
   

@@ -81,14 +81,7 @@ const AddProductForm = (props) => {
   };
 
   return (
-    <div className="login-container">
-      {errorMessage ? (
-        <div class="alert alert-success" role="alert">
-          <h4 className="validation-errors-display">{errorMessage}</h4>
-        </div>
-      ) : (
-        ""
-      )}
+    
       <div className="login-content">
         <form onSubmit={onFormSubmit}>
           <h2 className="new-card-form__header">Add item to your collection</h2>
@@ -285,6 +278,14 @@ const AddProductForm = (props) => {
             Save
           </button>
         </form>
+        <div className="login-container">
+      {errorMessage ? (
+        <div class="alert alert-success" role="alert">
+          <h4 className="validation-errors-display">{errorMessage}</h4>
+        </div>
+      ) : (
+        ""
+      )}
       </div>
     </div>
   );
