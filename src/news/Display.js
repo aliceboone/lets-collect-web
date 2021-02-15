@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+require('dotenv').config();
 
 class Display extends Component {
   constructor(props) {
