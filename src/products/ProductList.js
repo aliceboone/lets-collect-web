@@ -43,11 +43,11 @@ const ProductList = (props) => {
 
   return (
     <div>
-      <hr></hr>
       <div>
       <SearchBar className="searchbar" setSearch={(term) => setSearch(term)} />
       </div>
-      <h3 className="text-center">{props.currentUser.name} Collection</h3>
+     <br/>
+      <h4 className="text-center">{props.currentUser.name} Collection</h4>
       <Container>{productComponents}</Container>
     </div>
   );

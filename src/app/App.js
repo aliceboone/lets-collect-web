@@ -23,6 +23,7 @@ import ProductDetails from "../products/ProductDetails";
 import { API_BASE_URL } from "../constants/index";
 import Portfolio from "../products/Portfolio";
 import Home from "../home/Home";
+import Footer from "../footer/Footer";
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
@@ -195,7 +196,9 @@ const App = () => {
         effect="slide"
         offset={65}
       />
+        <Footer />
     </div>
+  
   );
 };
 export default App;

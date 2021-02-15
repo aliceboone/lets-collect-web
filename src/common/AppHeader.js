@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import collectLogo from '../img/collect-logo.png';
@@ -27,9 +27,9 @@ const AppHeader = (props) => {
             <Nav.Link as={NavLink} to="/add-card">
               Add Card
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/add-category">
+            {/* <Nav.Link as={NavLink} to="/add-category">
               Add Category
-            </Nav.Link>
+            </Nav.Link> */}
             <Nav.Link as={NavLink} to="/portfolio">
               Portfolio
             </Nav.Link>

@@ -4,18 +4,20 @@ import "./Portfolio.css";
 
 const Portfolio = (props) => {
 
-  const cardsTotal = props.products.length
+  const cardsTotal = props.products.length 
 
  let overallValue = 0;
  props.products.forEach(product => {
    overallValue += product.pricePaid;
  })
-
+ 
  let profit = 0;
  props.products.forEach(product => {
    if (!product.priceSold) return 
    profit += product.priceSold - product.pricePaid;
  })
+
+ 
 
   return (
     <Container>
@@ -23,6 +25,11 @@ const Portfolio = (props) => {
 
       <Row>
         <Col>Overall Cards in Collection</Col>
+        <Col>{cardsTotal} items</Col>
+      </Row>
+
+      <Row>
+        <Col>Overall Cards Sold</Col>
         <Col>{cardsTotal} items</Col>
       </Row>
 
