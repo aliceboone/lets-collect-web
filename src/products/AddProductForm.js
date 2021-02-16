@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./AddProductForm.css";
 import { API_BASE_URL } from "../constants/index";
+import { Link} from 'react-router-dom'
 
 const AddProductForm = (props) => {
   const defaultFormFields = {
@@ -84,7 +85,7 @@ const AddProductForm = (props) => {
     
       <div className="login-content">
         <form onSubmit={onFormSubmit}>
-          <h2 className="new-card-form__header">Add item to your collection</h2>
+          <h4 className="new-card-form__header">Add item to your collection</h4>
           <div>
             <label className="exampleInputEmail1">Category</label>
             <select
@@ -208,6 +209,7 @@ const AddProductForm = (props) => {
               <option>SGC</option>
             </select>
           </div>
+          <a target="_blank" href="https://www.ebay.com/b/Trading-Cards/bn_7116496578">Seach on ebay to add a current value to your card</a>
           <div>
             <label className="exampleInputEmail1">Current Value</label>
             <input
