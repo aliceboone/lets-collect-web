@@ -18,9 +18,9 @@ const ProductList = (props) => {
       return true;
     } else if (product.playerName === null) {
       return false;
-    } else if (
-      product.playerName.toLowerCase().includes(search.toLowerCase())
-    ) {
+    } else if (product.playerName.toLowerCase().includes(search.toLowerCase())) {
+      return true;
+    }else if (product.category.name.toLowerCase().includes(search.toLowerCase())) {
       return true;
     } else {
       return false;

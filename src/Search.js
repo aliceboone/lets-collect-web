@@ -18,7 +18,7 @@ class Search extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
 
-    this.apiUrl = `http://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=cc9750fc9b014931b098fc519533edc5`;
+    this.apiUrl = `http://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=${process.env.REACT_APP_API_KEY}`;
   }
 
   handleChange(event) {

@@ -4,27 +4,22 @@ import "./Portfolio.css";
 
 const Portfolio = (props) => {
 
-  let cardsTotalInCollection = 0;
-  props.products.forEach((product) => {
-    cardsTotalInCollection = props.products.length ;
-  });
+  const cardSoldCount = props.products.filter(product => product.priceSold > 0).length
 
+  const cardsTotalInCollection = props.products.length - cardSoldCount
+
+   // let overallamountGetInCardSold = 0;
+  // props.products.forEach((product) => {
+  //   if (product.priceSold !== null || product.priceSold !== 0 )
+  //   { 
+  //     console.log(product.priceSold)
+  //     overallamountGetInCardSold  += product.priceSold}
+  // });
+  
   let overallValueSpent = 0;
   props.products.forEach((product) => {
     overallValueSpent += product.pricePaid;
   });
-
-  let overallCardsSold  = 0;
-  props.products.forEach((product) => {
-    if (product.priceSold !== null) return;
-    overallCardsSold = product.priceSold.length;
-  });
-
-  // let overallCardsSold = 0;
-  // props.products.forEach((product) => {
-  //   if (product.priceSold) return;
-  //   overallCardsSold = product.priceSold.length;
-  // });
 
   let profit = 0;
   props.products.forEach((product) => {
@@ -56,7 +51,7 @@ const Portfolio = (props) => {
             </div>
             <div class="blue-column">
               Overall Cards Sold <br />
-              {overallCardsSold}
+              {cardSoldCount}
             </div>
           </div>
         </div>
