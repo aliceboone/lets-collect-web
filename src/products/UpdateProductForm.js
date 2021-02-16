@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Product from "./ProductList";
 import { API_BASE_URL } from "../constants/index";
+import "./AddProductForm.css";
 
 const UpdateProductForm = (props) => {
   const defaultFormFields = {
