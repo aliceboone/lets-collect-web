@@ -7,12 +7,12 @@
   background-color: #343a40;
   color: #bbb;
   line-height: 1;
-  padding: .5rem;
+  padding: auto;
   width: 100%;
 	left: 0;
 	bottom: 0;
 	text-align: center;
-	margin-top: 1rem;
+  margin-top: 20px;
 }
 
 
