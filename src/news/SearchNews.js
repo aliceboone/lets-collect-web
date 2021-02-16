@@ -19,7 +19,7 @@ class SearchNews extends Component {
     this.handleChange = this.handleChange.bind(this);
 
     this.apiUrl = `https://newsapi.org/v2/sources?language=en&apiKey=${process.env.REACT_APP_API_KEY}`;
-  }
+  } 
 
   handleChange(event) {
     this.setState({ value: event.target.value });
@@ -41,7 +41,7 @@ class SearchNews extends Component {
   render() {
     return (
       <div className="">
-        <h6>Select from {this.state.count} News Outlets</h6>
+        {/* <h6>Select from {this.state.count} News Outlets</h6>
         <select value={this.state.value} onChange={this.handleChange}>
           {this.state.data.map((outlet, i) => {
             return (
@@ -50,7 +50,7 @@ class SearchNews extends Component {
               </option>
             );
           })}
-        </select>
+        </select> */}
         <Outlet default={this.state.value} />
         <Display default={this.state.value} />
       </div>

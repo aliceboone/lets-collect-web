@@ -13,8 +13,7 @@ class Home extends Component {
             <h1>Stay on top of the lastest  News🔥</h1>
           </div>
         </div>
-        <SearchNews default="bbc-news" />
-        {/* <Footer /> */}
+        <SearchNews/>
       </div>
     );
   }

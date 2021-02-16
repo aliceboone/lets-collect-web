@@ -37,13 +37,6 @@ class Outlet extends Component {
   render() {
     return (
       <div className="outletSection">
-        <h4>
-          Outlet Description{' '}
-          <span role="img" aria-label="Newspaper Emoji">
-            📰
-          </span>
-        </h4>
-
         {this.state.data.map((item, y) => {
           if (item.id === this.state.value) {
             return (
