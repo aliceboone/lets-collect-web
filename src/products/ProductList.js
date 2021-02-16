@@ -3,6 +3,7 @@ import SearchBar from "./SearchBar";
 import Product from "../products/Product";
 import {Container, Row, Col} from "react-bootstrap";
 
+
 const chunk = (array, chunkSize) => {
   const result = [];
   for (var i = 0; i < array.length; i += chunkSize)
@@ -26,6 +27,7 @@ const ProductList = (props) => {
     }
   });
 
+  
   const productComponents = chunk(searchItems, 3).map((products) => {
     return (
       <Row>
@@ -41,14 +43,17 @@ const ProductList = (props) => {
     );
   });
 
+  // if ({product.priceSold} === null || {props.product.priceSold} === 0) return list
   return (
     <div>
       <div>
       <SearchBar className="searchbar" setSearch={(term) => setSearch(term)} />
       </div>
      <br/>
-      <h4 className="text-center">{props.currentUser.name} Collection</h4>
-      <Container>{productComponents}</Container>
+      <h4 className="text-center">{props.currentUser.name} Collection</h4><br/>
+      <Container>
+        {productComponents}
+      </Container>
     </div>
   );
 };
