@@ -157,14 +157,6 @@ const App = () => {
             productList={productList}
           ></PrivateRoute>
 
-          {/* <PrivateRoute
-            path="/product/new"
-            authenticated={authenticated}
-            currentUser={currentUser}
-            component={AddProductForm}
-            currentProduct={currentProduct}
-          ></PrivateRoute> */}
-
           <Route
             path="/login"
             render={(props) => (
