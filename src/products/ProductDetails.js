@@ -29,34 +29,15 @@ const ProductDetails = (props) => {
       });
   };
 
+
+  let profitPerItem = 0 
+  if(!product.priceSold === null){
+    profitPerItem = product.priceSold - product.pricePaid
+  }
+  
+
   return (
-//     <div className="container">
-//     {/* //   <img src={product.imageUrl1} alt="" className="productD-card__img"/>
-//     //   <h1>{product.playerName}</h1> */}
-
- 
-
-//     <div class="row row-list">
-//       <div class="col-xs-3">
-//         <img src={product.imageUrl1} alt="" className="product-card__img"/>
-//       </div>
-//       <div class="col-xs-2 container-img">
-//         <img src={product.imageUrl2}/> 
-//       </div>
-//       <div class="col-xs-7 container-paragraph">
-//         <h4>{product.playerName}</h4>
-//         <h5>{product.realeseYear}</h5>
-//         <h5>{product.brand}</h5>
-//       </div>
-//         <Button variant="primary" as={Link} to={`/product/${product.id}/edit`}>Edit</Button>
-//    <Button  variant="danger"onClick={handleDeleteProduct}>
-//     Delete
-// </Button>
-//   { errorMessage ? <div class="alert alert-success" role="alert"><h4 className="validation-errors-display">{errorMessage}</h4></div> : '' }
-//     </div> 
-//   </div>
-
-    <Container>
+    <Container className="container">
       <Row>
         <Col><img src={product.imageUrl1} alt="" className="productDetails-card__img"/></Col>
         <Col> <h4>{product.playerName}</h4>
@@ -69,6 +50,7 @@ const ProductDetails = (props) => {
             <h6>Graded by: {product.gradBy}</h6>
             <h6>Price paid: {product.pricePaid}</h6>
             <h6>Price Sold: {product.priceSold}</h6>
+            <h6>Profit: {profitPerItem}</h6>
             <h6>Notes: {product.notes}</h6>
             </Col>
         <Col> <img src={product.imageUrl2}/> </Col>

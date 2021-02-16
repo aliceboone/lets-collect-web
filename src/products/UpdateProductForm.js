@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Product from "./ProductList";
 import { API_BASE_URL } from "../constants/index";
+import "./AddProductForm.css";
 
 const UpdateProductForm = (props) => {
   const defaultFormFields = {
@@ -113,7 +113,7 @@ const UpdateProductForm = (props) => {
     <div className="login-container">
       <div className="login-content">
       <form onSubmit={onFormSubmit}>
-          <h2 className="new-card-form__header">Update your item</h2>
+          <h4 className="new-card-form__header">Update your item</h4>
           <div>
           <label className="exampleInputEmail1">Category</label>
             <select
@@ -233,6 +233,7 @@ const UpdateProductForm = (props) => {
               placeholder="gradedBy"
               type="text"/>
           </div>
+          <a target="_blank" href="https://www.ebay.com/b/Trading-Cards/bn_7116496578">Seach on ebay to update a current value to your card</a>
           <div>
           <label className="exampleInputEmail1">Current Value</label>
             <input
