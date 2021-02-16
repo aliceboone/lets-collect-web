@@ -1,19 +1,23 @@
 /* Generic styling */
 
 .footer {
+  justify-content: center;
 	display: flex;
   flex-wrap: wrap;
-	position: fixed;
-  background-color: #343a40;
+	/* position: fixed; */
+  /* background-color: #343a40; */
   color: #bbb;
   line-height: 1;
   padding: auto;
   width: 100%;
 	left: 0;
 	bottom: 0;
-	text-align: center;
   margin-top: 20px;
 }
 
+.footer p{
+	text-align: center;
+  align-self: center;
+}
 
 

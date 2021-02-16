@@ -18,9 +18,9 @@ const ProductList = (props) => {
       return true;
     } else if (product.playerName === null) {
       return false;
-    } else if (
-      product.playerName.toLowerCase().includes(search.toLowerCase())
-    ) {
+    } else if (product.playerName.toLowerCase().includes(search.toLowerCase())) {
+      return true;
+    }else if (product.category.name.toLowerCase().includes(search.toLowerCase())) {
       return true;
     } else {
       return false;
@@ -31,14 +31,18 @@ const ProductList = (props) => {
   const productComponents = chunk(searchItems, 3).map((products) => {
     return (
       <Row>
-        {products.map((product) => (
+        {products.map((product) => {
+          if(product.priceSold > 0){
+            return null
+          }
+          return(
           <Col sm={12} md={4}>
           <Product
             product={product}
             key={product.id}
             setCurrentProduct={props.setCurrentProduct}
-          /></Col>
-        ))}
+          /></Col>)
+  })}
       </Row>
     );
   });
