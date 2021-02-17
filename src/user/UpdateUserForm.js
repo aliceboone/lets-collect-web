@@ -4,8 +4,9 @@ import { API_BASE_URL } from "../constants/index";
 
 const UpdateUserForm = (props) => {
   const [formFields, setFormFields] = useState({
-    name: props.currentUser.name,
     imageUrl: props.currentUser.imageUrl,
+    name: props.currentUser.name,
+    email: props.currentUser.email
   });
 
   const [errorMessage, setErrorMessage] = useState(null);
@@ -43,6 +44,21 @@ const UpdateUserForm = (props) => {
     <form onSubmit={onFormSubmit} className="justify-content-center">
       <h2 className="new-card-form__header mt-3">Update Your Information</h2>
       <div className="form-group">
+        <label className="exampleInputEmail1 m-2">Your Image:</label>
+        <input
+          id="imageUrl"
+          name="imageUrl"
+          onChange={onInputChange}
+          value={formFields.imageUrl}
+          className="form-control"
+          placeholder={
+            props.currentUser.imageUrl
+              ? props.currentUser.imageUrl
+              : "Your display image..."
+          }
+          type="text"
+        />
+
         <label className="exampleInputEmail1 m-2">Name:</label>
         <input
           id="name"
@@ -57,17 +73,18 @@ const UpdateUserForm = (props) => {
           }
           type="text"
         />
-        <label className="exampleInputEmail1 m-2">Your Image:</label>
+
+        <label className="exampleInputEmail1 m-2">Email:</label>
         <input
-          id="imageUrl"
-          name="imageUrl"
+          id="email"
+          name="email"
           onChange={onInputChange}
-          value={formFields.imageUrl}
+          value={formFields.email}
           className="form-control"
           placeholder={
-            props.currentUser.imageUrl
-              ? props.currentUser.imageUrl
-              : "Your display image..."
+            props.currentUser.email
+              ? props.currentUser.email
+              : "Your display email..."
           }
           type="text"
         />
