@@ -107,7 +107,7 @@ const UpdateProductForm = (props) => {
         )}
         <form onSubmit={onFormSubmit}>
           <h4 className="new-card-form__header">Update your item</h4>
-          <div>
+          <div className="form-group">
             <label className="exampleInputEmail1">Category</label>
             <select
               className="form-control"

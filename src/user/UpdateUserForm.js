@@ -41,8 +41,17 @@ const UpdateUserForm = (props) => {
   };
 
   return (
-    <form onSubmit={onFormSubmit} className="justify-content-center">
-      <h2 className="new-card-form__header mt-3">Update Your Information</h2>
+    <div className="login-container">
+    <div className="login-content">
+      {errorMessage ? (
+        <div class="alert alert-success" role="alert">
+          <h6 className="validation-errors-display">{errorMessage}</h6>
+        </div>
+      ) : (
+        ""
+      )}
+    <form onSubmit={onFormSubmit}>
+      <h4 className="new-card-form__header mt-3">Update Your Information</h4>
       <div className="form-group">
         <label className="exampleInputEmail1 m-2">Your Image:</label>
         <input
@@ -58,7 +67,6 @@ const UpdateUserForm = (props) => {
           }
           type="text"
         />
-
         <label className="exampleInputEmail1 m-2">Name:</label>
         <input
           id="name"
@@ -73,7 +81,6 @@ const UpdateUserForm = (props) => {
           }
           type="text"
         />
-
         <label className="exampleInputEmail1 m-2">Email:</label>
         <input
           id="email"
@@ -99,7 +106,8 @@ const UpdateUserForm = (props) => {
         </button>
       </div>
     </form>
+    </div>
+    </div>
   );
 };
-
 export default UpdateUserForm;
