@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Navbar, Nav} from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import collectLogo from '../img/collect-logo.png';
 import { PersonFill } from 'react-bootstrap-icons';
@@ -16,7 +15,6 @@ const AppHeader = (props) => {
         Let's Collect
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      {/* <Navbar.Collapse id="responsive-navbar-nav"> */}
         {props.authenticated ? (
           <Nav className="ml-auto">
             <Nav.Link as={NavLink} to="/product" exact>
@@ -48,7 +46,6 @@ const AppHeader = (props) => {
             </Nav.Link>
           </Nav>
         )}
-      {/* </Navbar.Collapse> */}
     </Navbar>
   );
 };

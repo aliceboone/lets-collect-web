@@ -1,5 +1,4 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
 import "./Portfolio.css";
 
 const Portfolio = (props) => {
@@ -28,14 +27,14 @@ const Portfolio = (props) => {
   });
 
   return (
-    <div className="container">
+    <div className="portfolio_container">
       <div class="some-page-wrapper">
         <div class="row">
           <div class="column">
             <div class="blue-column">
               <img
                 className="portfolio"
-                src=" https://i.ibb.co/tbDTB49/collection.jpg"/>
+                src=" https://i.ibb.co/tbDTB49/collection.jpg" alt=""/>
             </div>
             <div class="blue-column">
               Items in Collection
@@ -47,7 +46,7 @@ const Portfolio = (props) => {
             <div class="blue-column">
               <img
                 className="portfolio"
-                src="https://i.ibb.co/28H0sWD/sold.jpg"/>
+                src="https://i.ibb.co/28H0sWD/sold.jpg" alt=""/>
             </div>
             <div class="blue-column">
               Overall Cards Sold <br />
@@ -62,7 +61,7 @@ const Portfolio = (props) => {
             <div class="blue-column">
               <img
                 className="portfolio"
-                src="https://i.ibb.co/j5mMRsm/spent.jpg"/>
+                src="https://i.ibb.co/j5mMRsm/spent.jpg" alt=""/>
             </div>
             <div class="green-column">
               Amount spent in collection
@@ -73,7 +72,7 @@ const Portfolio = (props) => {
             <div class="blue-column">
               <img
                 className="portfolio"
-                src="https://i.ibb.co/v4k99b4/profit.jpg"/>
+                src="https://i.ibb.co/v4k99b4/profit.jpg" alt=""/>
             </div>
             <div class="green-column">
               Profit made on cards sold

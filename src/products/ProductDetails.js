@@ -8,7 +8,6 @@ import { API_BASE_URL } from "../constants/index";
 const ProductDetails = (props) => {
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const { imageUrl1, playerName } = props;
   const id = parseInt(props.match.params.id);
   const product = props.productList.filter((product) => product.id === id)[0];
 
@@ -29,13 +28,6 @@ const ProductDetails = (props) => {
       });
   };
 
-
-  let profitPerItem = 0 
-  if(!product.priceSold === null){
-    profitPerItem = product.priceSold - product.pricePaid
-  }
-  
-
   return (
     <Container className="container">
       <Row>
@@ -45,15 +37,15 @@ const ProductDetails = (props) => {
             <h6>Brand: {product.brand}</h6>
             <h6>Set: {product.set}</h6>
             <h6>Team: {product.team}</h6>
+            <h6>Card Number: {product.cardNumber}</h6>
             <h6>Card Condition: {product.cardCondition}</h6>
             <h6>Grade: {product.grade}</h6>
             <h6>Graded by: {product.gradBy}</h6>
             <h6>Price paid: {product.pricePaid}</h6>
-            <h6>Price Sold: {product.priceSold}</h6>
-            <h6>Profit: {profitPerItem}</h6>
+            <h6>Current Value: {product.currentValue}</h6>
             <h6>Notes: {product.notes}</h6>
             </Col>
-        <Col> <img src={product.imageUrl2}/> </Col>
+        <Col> <img src={product.imageUrl2} alt=""/> </Col>
       </Row>
       <Container>
       <Row>

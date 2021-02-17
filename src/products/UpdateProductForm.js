@@ -21,11 +21,9 @@ const UpdateProductForm = (props) => {
     notes: props.notes,
     imageUrl1: props.imageUrl1,
     imageUrl2: props.imageUrl2,
-
   };
   const [categoriesList, setCategoriesList] = useState([]);
   const [formFields, setFormFields] = useState({ defaultFormFields });
-  const [product, setProduct] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
   const [update, setUpdate] = useState(false);
 
@@ -75,19 +73,7 @@ const UpdateProductForm = (props) => {
       });
   };
 
-  const cancelUpdateProduct = () => {
-    setUpdate(false);
-  };
-
   const onInputChange = (event) => {
-    setFormFields({
-      ...formFields,
-      [event.target.name]: event.currentTarget.value,
-    });
-  };
-
-  // event handlers for textarea
-  const onTextareaChange = (event) => {
     setFormFields({
       ...formFields,
       [event.target.name]: event.currentTarget.value,
@@ -112,18 +98,27 @@ const UpdateProductForm = (props) => {
   return (
     <div className="login-container">
       <div className="login-content">
-      <form onSubmit={onFormSubmit}>
+        {errorMessage ? (
+          <div class="alert alert-success" role="alert">
+            <h6 className="validation-errors-display">{errorMessage}</h6>
+          </div>
+        ) : (
+          ""
+        )}
+        <form onSubmit={onFormSubmit}>
           <h4 className="new-card-form__header">Update your item</h4>
           <div>
-          <label className="exampleInputEmail1">Category</label>
+            <label className="exampleInputEmail1">Category</label>
             <select
               className="form-control"
               name="category"
-              onChange={onSelectChange}>
+              onChange={onSelectChange}
+            >
               {categoriesList.map((category) => (
                 <option key={category.id} value={category.name}>
                   {category.name}
-                </option>))}
+                </option>
+              ))}
             </select>
           </div>
           <div>
@@ -135,7 +130,8 @@ const UpdateProductForm = (props) => {
               value={formFields.playerName}
               className="form-control"
               placeholder="Player Name"
-              type="text"/>
+              type="text"
+            />
           </div>
           <div>
             <label className="exampleInputEmail1">Brand</label>
@@ -146,21 +142,23 @@ const UpdateProductForm = (props) => {
               value={formFields.brand}
               className="form-control"
               placeholder="Brand"
-              type="text"/>
-              <div>
-          <label className="exampleInputEmail1">Release Year</label>
-            <input
-              id="releaseYear"
-              name="releaseYear"
-              onChange={onInputChange}
-              value={formFields.releaseYear}
-              className="form-control"
-              placeholder="Release Year"
-              type="text"/>
-          </div>
+              type="text"
+            />
+            <div>
+              <label className="exampleInputEmail1">Release Year</label>
+              <input
+                id="releaseYear"
+                name="releaseYear"
+                onChange={onInputChange}
+                value={formFields.releaseYear}
+                className="form-control"
+                placeholder="Release Year"
+                type="text"
+              />
+            </div>
           </div>
           <div>
-          <label className="exampleInputEmail1">Set</label>
+            <label className="exampleInputEmail1">Set</label>
             <input
               id="setName"
               name="setName"
@@ -168,10 +166,11 @@ const UpdateProductForm = (props) => {
               value={formFields.setName}
               className="form-control"
               placeholder="Set "
-              type="text"/>
+              type="text"
+            />
           </div>
           <div>
-          <label className="exampleInputEmail1">Team</label>
+            <label className="exampleInputEmail1">Team</label>
             <input
               id="team"
               name="team"
@@ -179,10 +178,11 @@ const UpdateProductForm = (props) => {
               value={formFields.team}
               className="form-control"
               placeholder="Team"
-              type="text"/>
+              type="text"
+            />
           </div>
           <div>
-          <label className="exampleInputEmail1">Card Number</label>
+            <label className="exampleInputEmail1">Card Number</label>
             <input
               id="cardNumber"
               name="cardNumber"
@@ -190,10 +190,11 @@ const UpdateProductForm = (props) => {
               value={formFields.cardNumber}
               className="form-control"
               placeholder="Card Number"
-              type="text"/>
+              type="text"
+            />
           </div>
           <div>
-          <label className="exampleInputEmail1">Card Condition</label>
+            <label className="exampleInputEmail1">Card Condition</label>
             <input
               id="cardCondition"
               name="cardCondition"
@@ -201,14 +202,16 @@ const UpdateProductForm = (props) => {
               value={formFields.cardCondition}
               className="form-control"
               placeholder="Card Condition"
-              type="text"/>
+              type="text"
+            />
           </div>
           <div className="form-item">
-          <label className="exampleInputEmail1">Grade</label>
+            <label className="exampleInputEmail1">Grade</label>
             <select
               className="form-control"
               name="grade"
-              onChange={onSelectChange}>
+              onChange={onSelectChange}
+            >
               <option></option>
               <option>10</option>
               <option>9</option>
@@ -223,7 +226,7 @@ const UpdateProductForm = (props) => {
             </select>
           </div>
           <div>
-          <label className="exampleInputEmail1">GradedBy</label>
+            <label className="exampleInputEmail1">GradedBy</label>
             <input
               id="gradedBy"
               name="gradedBy"
@@ -231,11 +234,18 @@ const UpdateProductForm = (props) => {
               value={formFields.gradedBy}
               className="form-control"
               placeholder="gradedBy"
-              type="text"/>
+              type="text"
+            />
           </div>
-          <a target="_blank" href="https://www.ebay.com/b/Trading-Cards/bn_7116496578">Seach on ebay to update a current value to your card</a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.ebay.com/b/Trading-Cards/bn_7116496578"
+          >
+            Seach on ebay to update a current value to your card
+          </a>
           <div>
-          <label className="exampleInputEmail1">Current Value</label>
+            <label className="exampleInputEmail1">Current Value</label>
             <input
               id="currentValue"
               name="currentValue"
@@ -243,10 +253,11 @@ const UpdateProductForm = (props) => {
               value={formFields.currentValue}
               className="form-control"
               placeholder="Current Value"
-              type="text"/>
+              type="text"
+            />
           </div>
           <div>
-          <label className="exampleInputEmail1">Price Paid</label>
+            <label className="exampleInputEmail1">Price Paid</label>
             <input
               id="pricePaid"
               name="pricePaid"
@@ -254,10 +265,11 @@ const UpdateProductForm = (props) => {
               value={formFields.pricePaid}
               className="form-control"
               placeholder="Price Paid"
-              type="text"/>
+              type="text"
+            />
           </div>
           <div>
-          <label className="exampleInputEmail1">Price Sold</label>
+            <label className="exampleInputEmail1">Price Sold</label>
             <input
               id="priceSold"
               name="priceSold"
@@ -265,10 +277,11 @@ const UpdateProductForm = (props) => {
               value={formFields.priceSold}
               className="form-control"
               placeholder="Price Sold"
-              type="text"/>
+              type="text"
+            />
           </div>
           <div>
-          <label className="exampleInputEmail1">Notes</label>
+            <label className="exampleInputEmail1">Notes</label>
             <input
               id="notes"
               name="notes"
@@ -276,10 +289,11 @@ const UpdateProductForm = (props) => {
               value={formFields.notes}
               className="form-control"
               placeholder="Add extra notes"
-              type="text"/>
+              type="text"
+            />
           </div>
           <div>
-          <label className="exampleInputEmail1">Image Front</label>
+            <label className="exampleInputEmail1">Image Front</label>
             <input
               id="imageUrl1"
               name="imageUrl1"
@@ -287,10 +301,11 @@ const UpdateProductForm = (props) => {
               value={formFields.imageUrl1}
               className="form-control"
               placeholder="Image front"
-              type="text"/>
+              type="text"
+            />
           </div>
           <div>
-          <label className="exampleInputEmail1">Image Back</label>
+            <label className="exampleInputEmail1">Image Back</label>
             <input
               id="imageUrl2"
               name="imageUrl2"
@@ -298,13 +313,13 @@ const UpdateProductForm = (props) => {
               value={formFields.imageUrl2}
               className="form-control"
               placeholder="Image Back"
-              type="text"/>
+              type="text"
+            />
           </div>
           <button type="submit" className="btn btn-block btn-primary">
             Save
           </button>
         </form>
-        { errorMessage ? <div><h2 className="validation-errors-display">{errorMessage}</h2></div> : '' }
       </div>
     </div>
   );

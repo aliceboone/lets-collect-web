@@ -1,10 +1,11 @@
+import { Button } from "bootstrap";
 import React, { Component } from "react";
 import "./Profile.css";
+import { Link } from 'react-router-dom'
 
 class Profile extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
   render() {
     return (
@@ -30,6 +31,7 @@ class Profile extends Component {
               <h2>{this.props.currentUser.name}</h2>
               <p className="profile-email">{this.props.currentUser.email}</p>
             </div>
+            <Link to={`/user/edit`}> Edit </Link>
           </div>
         </div>
       </div>

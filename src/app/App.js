@@ -17,6 +17,7 @@ import "react-s-alert/dist/s-alert-css-effects/slide.css";
 import "./App.css";
 import ProductList from "../products/ProductList";
 import UpdateProductForm from "../products/UpdateProductForm";
+import UpdateUserForm from "../user/UpdateUserForm";
 import AddProductForm from "../products/AddProductForm";
 import AddCategoryForm from "../categories/AddCategoryForm";
 import ProductDetails from "../products/ProductDetails";
@@ -147,6 +148,13 @@ const App = () => {
             currentUser={currentUser}
             component={UpdateProductForm}
             productList={productList}
+          ></PrivateRoute>
+
+          <PrivateRoute
+            path="/user/edit"
+            authenticated={authenticated}
+            currentUser={currentUser}
+            component={UpdateUserForm}
           ></PrivateRoute>
 
           <PrivateRoute

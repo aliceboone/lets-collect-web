@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './Home.css';
 import SearchNews from '../news/SearchNews.js';
 import '../news/SearchNews.css';
-import news from '../img/news.png';;
 
 class Home extends Component {
   render() {
