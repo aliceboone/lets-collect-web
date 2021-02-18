@@ -14,7 +14,9 @@ A simple inventory to get track of sports cards and nonsports cards collection.
          - Get list of cards in collection 
          - Search cards by name or category(basebal, football, etc)
          - Get cards details
-         - See in the portfolio page the total items in collection, the amount spent in the collection in case the user sold some cards from collection, the user will be able to see how many cards got sold and the profit made on cards sold.
+         - See in the portfolio page the total items in collection, 
+         the amount spent in the collection in case the user sold some cards from collection
+         the user will be able to see how many cards got sold and the profit made on cards sold.
  
 ## Technology Stacks
   Spring Boot
