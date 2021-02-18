@@ -31,7 +31,7 @@ A simple inventory to get track of sports cards and nonsports cards collection.
    - NewApi
   
 ## Getting Started with Spring Boot rest api
-   - Go to the back end repository the repository https://github.com/aliceboone/lets-collect-api.
+   - Go to the back end repository https://github.com/aliceboone/lets-collect-api.
    - Clone the repository : git clone https://github.com/aliceboone/lets-collect-api.git
    - Go inside the folder: cd lets-collect-api
    - Run the backend application: `mvn clean spring-boot:run`
