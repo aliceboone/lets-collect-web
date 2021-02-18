@@ -17,32 +17,31 @@ A simple inventory to get track of sports cards and nonsports cards collection.
    - See in the portfolio page the total items in collection, the amount spent in the collection in case the user sold some cards from collection the user will be able to see how many cards got sold and the profit made on cards sold.
  
 ## Technology Stacks
-  Spring Boot
-  Java 15
-  Maven 
-  IntelliJ 
-  React
-  NodeJS 
-  NPM 
-  Boostrap
-  Mysql Database
-  MySql Workbench
-  OAuth(google)
-  NewApi
+   - Spring Boot
+   - Java 15
+   - Maven 
+   - IntelliJ 
+   - React
+   - NodeJS 
+   - NPM 
+   - Boostrap
+   - Mysql Database
+   - MySql Workbench
+   - OAuth(google)
+   - NewApi
   
 ## Getting Started with Spring Boot rest api
-  Go to the back end repository the repository https://github.com/aliceboone/lets-collect-api.
-  Clone the repository : git clone https://github.com/aliceboone/lets-collect-api.git
-  Go inside the folder: cd lets-collect-api
-  Run the backend application: `mvn clean spring-boot:run`
+   - Go to the back end repository the repository https://github.com/aliceboone/lets-collect-api.
+   - Clone the repository : git clone https://github.com/aliceboone/lets-collect-api.git
+   - Go inside the folder: cd lets-collect-api
+   - Run the backend application: `mvn clean spring-boot:run`
   
 ## Getting Started with  React App
-  Clone this repository: git clone https://github.com/aliceboone/lets-collect-web.git
-  Go inside the folder: cd lets-collect-web
-  In the project directory to install all the dependencies run `npm install` 
-  Runs the app in the development mode `npm start`
-  Open [http://localhost:3000](http://localhost:3000) to view it in the browser.The page will reload if you make changes.\
-You will also see any lint errors in the console.
+   - Clone this repository: git clone https://github.com/aliceboone/lets-collect-web.git
+   - Go inside the folder: cd lets-collect-web
+   - In the project directory to install all the dependencies run `npm install` 
+   - Runs the app in the development mode `npm start`
+   - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.The page will reload if you make changes.You will also see any lint errors in the console.
 
 ## Images
 
