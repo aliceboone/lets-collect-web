@@ -5,7 +5,7 @@ A simple inventory to get track of sports cards and nonsports cards collection.
 
 ## The user can be able to:
 
- Markup: - Create an account with a email and password
+         - Create an account with a email and password
          - Login in a existing account using either email or google authentication
          - Update user information
          - In the home page the user can check for the latests sports news.
