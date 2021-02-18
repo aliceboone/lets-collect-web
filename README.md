@@ -27,6 +27,7 @@ A simple inventory to get track of sports cards and nonsports cards collection.
   Mysql Database
   MySql Workbench
   OAuth(google)
+  NewApi
   
 # Getting Started with Spring Boot rest api
   Go to the back end repository the repository https://github.com/aliceboone/lets-collect-api.
@@ -44,9 +45,9 @@ You will also see any lint errors in the console.
 
 # Images
 
-ERD
+Login
 
-![alt text](https://i.ibb.co/hWKh2yP/let-s-collect-ERD.png)
+![alt text](https://i.ibb.co/mz0NH84/Screen-Shot-2021-02-17-at-4-50-29-PM.png)
 
 HomePage
 
@@ -70,6 +71,10 @@ Add Cards
 Portfolio
 
 ![alt text](https://i.ibb.co/C07d43T/Screen-Shot-2021-02-17-at-4-39-25-PM.png)
+
+ERD
+
+![alt text](https://i.ibb.co/hWKh2yP/let-s-collect-ERD.png)
 
 
 
