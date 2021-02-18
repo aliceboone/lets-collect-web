@@ -1,70 +1,75 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Let's Collect 
 
-## Available Scripts
+A simple inventory to get track of sports cards and nonsports cards collection. 
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
+# The user can be able to:
+ Create an account with a email and password
+ Login in a existing account using either email or google authentication
+ Update user information
+ In the home page the user can check for the latests sports news.
+ Create, update and delete categories
+ Create, update and delete cards
+ Get list of cards in collection 
+ Search cards by name or category(basebal, football, etc)
+ Get cards details
+ See in the portfolio page the total items in collection, the amount spent in the collection in case the user sold some cards from collection, the user will be able to see how many cards got sold and the profit made on cards sold.
+ 
+# Technology Stacks
+  Spring Boot
+  Java 15
+  Maven 
+  IntelliJ 
+  React
+  NodeJS 
+  NPM 
+  Boostrap
+  Mysql Database
+  MySql Workbench
+  OAuth(google)
+  
+# Getting Started with Spring Boot rest api
+  Go to the back end repository the repository https://github.com/aliceboone/lets-collect-api.
+  Clone the repository : git clone https://github.com/aliceboone/lets-collect-api.git
+  Go inside the folder: cd lets-collect-api
+  Run the backend application: `mvn clean spring-boot:run`
+  
+  # Getting Started with  React App
+  Clone this repository: git clone https://github.com/aliceboone/lets-collect-web.git
+  Go inside the folder: cd lets-collect-web
+  In the project directory to install all the dependencies run `npm install` 
+  Runs the app in the development mode `npm start`
+  Open [http://localhost:3000](http://localhost:3000) to view it in the browser.The page will reload if you make changes.\
 You will also see any lint errors in the console.
 
-### `npm test`
+# Images
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ERD
 
-### `npm run build`
+![alt text](https://i.ibb.co/hWKh2yP/let-s-collect-ERD.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+HomePage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![alt text](https://i.ibb.co/m0h2FRF/Screen-Shot-2021-02-17-at-4-37-18-PM.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Collection List
 
-### `npm run eject`
+![alt text](https://i.ibb.co/hyT3spL/Screen-Shot-2021-02-17-at-4-37-48-PM.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Card details
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![alt text](https://i.ibb.co/nfxnt8H/Screen-Shot-2021-02-17-at-4-38-28-PM.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Add Category
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![alt text](https://i.ibb.co/Tbxsskj/Screen-Shot-2021-02-17-at-4-39-13-PM.png)
 
-## Learn More
+Add Cards
+![alt text](https://i.ibb.co/6rKZ23J/Screen-Shot-2021-02-17-at-4-38-58-PM.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Portfolio
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![alt text](https://i.ibb.co/C07d43T/Screen-Shot-2021-02-17-at-4-39-25-PM.png)
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
